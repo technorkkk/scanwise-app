@@ -1,0 +1,49 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0D9488"/>
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="128" y1="160" x2="384" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#D1FAE5" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+  <rect x="32" y="32" width="448" height="448" rx="88" fill="none" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+  <!-- Scanner Frame -->
+  <rect x="128" y="140" width="256" height="200" rx="24" fill="none" stroke="url(#scanGrad)" stroke-width="6" stroke-linecap="round"/>
+  <!-- Corner accents -->
+  <path d="M128 180 L128 148 Q128 140 136 140 L168 140" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M384 180 L384 148 Q384 140 376 140 L344 140" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M128 300 L128 332 Q128 340 136 340 L168 340" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M384 300 L384 332 Q384 340 376 340 L344 340" stroke="white" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- Scan line -->
+  <line x1="148" y1="240" x2="364" y2="240" stroke="#34D399" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"/>
+  <rect x="148" y="237" width="216" height="6" rx="3" fill="#34D399" fill-opacity="0.3"/>
+  <!-- Barcode lines -->
+  <rect x="168" y="185" width="5" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="178" y="185" width="3" height="40" rx="1.5" fill="white" fill-opacity="0.6"/>
+  <rect x="186" y="185" width="6" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="197" y="185" width="2" height="40" rx="1" fill="white" fill-opacity="0.5"/>
+  <rect x="204" y="185" width="5" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="214" y="185" width="3" height="40" rx="1.5" fill="white" fill-opacity="0.6"/>
+  <rect x="222" y="185" width="7" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="234" y="185" width="2" height="40" rx="1" fill="white" fill-opacity="0.5"/>
+  <rect x="240" y="185" width="5" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="250" y="185" width="4" height="40" rx="2" fill="white" fill-opacity="0.7"/>
+  <rect x="259" y="185" width="6" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="270" y="185" width="2" height="40" rx="1" fill="white" fill-opacity="0.5"/>
+  <rect x="276" y="185" width="5" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="286" y="185" width="3" height="40" rx="1.5" fill="white" fill-opacity="0.6"/>
+  <rect x="294" y="185" width="7" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="306" y="185" width="4" height="40" rx="2" fill="white" fill-opacity="0.7"/>
+  <rect x="315" y="185" width="5" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <rect x="325" y="185" width="3" height="40" rx="1.5" fill="white" fill-opacity="0.6"/>
+  <rect x="334" y="185" width="6" height="40" rx="2" fill="white" fill-opacity="0.85"/>
+  <!-- Checkmark -->
+  <circle cx="370" cy="360" r="28" fill="#34D399"/>
+  <path d="M354 360 L365 371 L387 349" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- W text at bottom -->
+  <text x="256" y="420" font-family="system-ui, sans-serif" font-size="36" font-weight="700" fill="white" fill-opacity="0.95" text-anchor="middle" letter-spacing="4">SCANWISE</text>
+</svg>

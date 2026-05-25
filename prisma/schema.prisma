@@ -1,0 +1,182 @@
+// ScanWise Database Schema
+// This schema is designed for Supabase (PostgreSQL) but uses SQLite for local dev
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  full_name     String?
+  avatar_url    String?
+  language      String   @default("en") // en | hi
+  theme         String   @default("system") // light | dark | system
+  role          String   @default("user") // user | admin | moderator
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  favorites     Favorite[]
+  scan_history  ScanHistory[]
+  comparisons   Comparison[]
+}
+
+model Product {
+  id                     String   @id @default(cuid())
+  barcode                String   @unique
+  name                   String
+  brand                  String?
+  image_url              String?
+  category               String?
+  nutri_score            String?  // A | B | C | D | E
+  nova_group             Int?     // 1 | 2 | 3 | 4
+  eco_score              String?  // A | B | C | D | E
+  health_score           Int?     // 0-100
+  calories_per_100g      Float?
+  fat_per_100g           Float?
+  saturated_fat_per_100g Float?
+  carbs_per_100g         Float?
+  sugar_per_100g         Float?
+  fiber_per_100g         Float?
+  protein_per_100g       Float?
+  salt_per_100g          Float?
+  sodium_per_100g        Float?
+  ingredients_text       String?
+  allergens              String?  // JSON array stored as string
+  additives              String?  // JSON array stored as string
+  processing_level       String?  // minimally_processed | processed | ultra_processed
+  ai_summary_en          String?
+  ai_summary_hi          String?
+  source                 String?  // open_food_facts | manual | ai_generated
+  approved               Boolean  @default(false)
+  created_at             DateTime @default(now())
+  updated_at             DateTime @updatedAt
+
+  favorites      Favorite[]
+  scan_history   ScanHistory[]
+  affiliate_offers AffiliateOffer[]
+}
+
+model Favorite {
+  id         String   @id @default(cuid())
+  user_id    String
+  product_id String
+  created_at DateTime @default(now())
+
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+
+  @@unique([user_id, product_id])
+}
+
+model ScanHistory {
+  id         String   @id @default(cuid())
+  user_id    String
+  product_id String
+  barcode    String
+  created_at DateTime @default(now())
+
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+}
+
+model Comparison {
+  id          String   @id @default(cuid())
+  user_id     String
+  product_ids String   // JSON array of product IDs
+  created_at  DateTime @default(now())
+
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model AffiliateProvider {
+  id            String   @id @default(cuid())
+  name          String   @unique
+  logo_url      String?
+  base_url      String
+  affiliate_tag String?
+  is_active     Boolean  @default(true)
+  created_at    DateTime @default(now())
+
+  offers AffiliateOffer[]
+}
+
+model AffiliateOffer {
+  id           String   @id @default(cuid())
+  product_id   String
+  provider_id  String
+  price        Float?
+  currency     String   @default("INR")
+  url          String
+  in_stock     Boolean  @default(true)
+  last_checked DateTime @default(now())
+  created_at   DateTime @default(now())
+
+  product  Product           @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  provider AffiliateProvider @relation(fields: [provider_id], references: [id], onDelete: Cascade)
+}
+
+model AffiliateClick {
+  id          String   @id @default(cuid())
+  product_id  String
+  provider_id String
+  user_id     String?
+  ip_address  String?
+  url         String
+  created_at  DateTime @default(now())
+}
+
+model FeatureFlag {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  enabled     Boolean  @default(false)
+  description String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model AIPrompt {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  prompt      String
+  model       String   @default("gemini-pro")
+  is_active   Boolean  @default(true)
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Report {
+  id          String   @id @default(cuid())
+  type        String   // product | user | scan | affiliate
+  title       String
+  description String?
+  status      String   @default("pending") // pending | reviewed | resolved
+  reported_by String?
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+}
+
+model Ingredient {
+  id          String   @id @default(cuid())
+  name        String
+  name_hi     String?
+  safety      String   @default("safe") // safe | caution | avoid
+  category    String?
+  description String?
+  created_at  DateTime @default(now())
+}
+
+model AllergenInfo {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  name_en     String
+  name_hi     String
+  icon        String?
+  severity    String   @default("moderate") // mild | moderate | severe
+  created_at  DateTime @default(now())
+}

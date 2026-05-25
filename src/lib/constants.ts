@@ -1,0 +1,246 @@
+// ─── Nutri-Score Colors & Labels ───────────────────────────
+export const NUTRI_SCORE_CONFIG = {
+  A: { color: '#22c55e', bg: 'bg-emerald-500', text: 'text-white', label: 'Excellent', labelHi: 'उत्कृष्ट' },
+  B: { color: '#84cc16', bg: 'bg-lime-500', text: 'text-white', label: 'Good', labelHi: 'अच्छा' },
+  C: { color: '#eab308', bg: 'bg-yellow-500', text: 'text-white', label: 'Average', labelHi: 'औसत' },
+  D: { color: '#f97316', bg: 'bg-orange-500', text: 'text-white', label: 'Poor', labelHi: 'खराब' },
+  E: { color: '#ef4444', bg: 'bg-red-500', text: 'text-white', label: 'Bad', labelHi: 'बहुत खराब' },
+} as const;
+
+// ─── NOVA Group Config ─────────────────────────────────────
+export const NOVA_GROUP_CONFIG = {
+  1: { color: '#22c55e', bg: 'bg-emerald-500', text: 'text-white', label: 'Unprocessed', labelHi: 'असंसाधित', description: 'Minimally processed foods' },
+  2: { color: '#84cc16', bg: 'bg-lime-500', text: 'text-white', label: 'Processed Ingredients', labelHi: 'प्रसंस्कृत सामग्री', description: 'Processed culinary ingredients' },
+  3: { color: '#eab308', bg: 'bg-yellow-500', text: 'text-white', label: 'Processed', labelHi: 'प्रसंस्कृत', description: 'Processed foods' },
+  4: { color: '#ef4444', bg: 'bg-red-500', text: 'text-white', label: 'Ultra-Processed', labelHi: 'अति प्रसंस्कृत', description: 'Ultra-processed food products' },
+} as const;
+
+// ─── Eco-Score Config ──────────────────────────────────────
+export const ECO_SCORE_CONFIG = {
+  A: { color: '#22c55e', bg: 'bg-emerald-500', text: 'text-white', label: 'Low Impact', labelHi: 'कम प्रभाव' },
+  B: { color: '#84cc16', bg: 'bg-lime-500', text: 'text-white', label: 'Moderate', labelHi: 'मध्यम' },
+  C: { color: '#eab308', bg: 'bg-yellow-500', text: 'text-white', label: 'Medium', labelHi: 'मध्यम' },
+  D: { color: '#f97316', bg: 'bg-orange-500', text: 'text-white', label: 'High Impact', labelHi: 'उच्च प्रभाव' },
+  E: { color: '#ef4444', bg: 'bg-red-500', text: 'text-white', label: 'Very High', labelHi: 'बहुत उच्च' },
+} as const;
+
+// ─── Allergen Levels ───────────────────────────────────────
+export const ALLERGEN_LEVELS = {
+  contains: { color: 'bg-rose-500', border: 'border-rose-500', text: 'text-rose-50', label: 'Contains' },
+  may_contain: { color: 'bg-amber-500', border: 'border-amber-500', text: 'text-amber-50', label: 'May Contain' },
+  free: { color: 'bg-emerald-500', border: 'border-emerald-500', text: 'text-emerald-50', label: 'Free' },
+} as const;
+
+// ─── Ingredient Safety ─────────────────────────────────────
+export const INGREDIENT_SAFETY = {
+  safe: { color: 'bg-emerald-100 dark:bg-emerald-900/30', border: 'border-emerald-300 dark:border-emerald-700', text: 'text-emerald-800 dark:text-emerald-200' },
+  caution: { color: 'bg-amber-100 dark:bg-amber-900/30', border: 'border-amber-300 dark:border-amber-700', text: 'text-amber-800 dark:text-amber-200' },
+  avoid: { color: 'bg-rose-100 dark:bg-rose-900/30', border: 'border-rose-300 dark:border-rose-700', text: 'text-rose-800 dark:text-rose-200' },
+} as const;
+
+// ─── Processing Level ──────────────────────────────────────
+export const PROCESSING_LEVELS = {
+  minimally_processed: { label: 'Minimally Processed', labelHi: 'न्यूनतम प्रसंस्कृत', color: '#22c55e', percentage: 20 },
+  processed: { label: 'Processed', labelHi: 'प्रसंस्कृत', color: '#eab308', percentage: 60 },
+  ultra_processed: { label: 'Ultra-Processed', labelHi: 'अति प्रसंस्कृत', color: '#ef4444', percentage: 95 },
+} as const;
+
+// ─── Health Score Thresholds ───────────────────────────────
+export const HEALTH_SCORE = {
+  excellent: { min: 80, max: 100, color: '#22c55e', label: 'Excellent' },
+  good: { min: 60, max: 79, color: '#84cc16', label: 'Good' },
+  average: { min: 40, max: 59, color: '#eab308', label: 'Average' },
+  poor: { min: 20, max: 39, color: '#f97316', label: 'Poor' },
+  bad: { min: 0, max: 19, color: '#ef4444', label: 'Bad' },
+} as const;
+
+// ─── Common Allergens ──────────────────────────────────────
+export const COMMON_ALLERGENS = [
+  'milk', 'eggs', 'fish', 'shellfish', 'tree_nuts',
+  'peanuts', 'wheat', 'soybeans', 'gluten', 'sesame',
+  'celery', 'mustard', 'lupin', 'molluscs', 'sulphites',
+] as const;
+
+export const ALLERGEN_LABELS: Record<string, { en: string; hi: string; icon: string }> = {
+  milk: { en: 'Milk', hi: 'दूध', icon: '🥛' },
+  eggs: { en: 'Eggs', hi: 'अंडे', icon: '🥚' },
+  fish: { en: 'Fish', hi: 'मछली', icon: '🐟' },
+  shellfish: { en: 'Shellfish', hi: 'शेलफिश', icon: '🦐' },
+  tree_nuts: { en: 'Tree Nuts', hi: 'ट्री नट्स', icon: '🥜' },
+  peanuts: { en: 'Peanuts', hi: 'मूंगफली', icon: '🥜' },
+  wheat: { en: 'Wheat', hi: 'गेहूं', icon: '🌾' },
+  soybeans: { en: 'Soybeans', hi: 'सोयाबीन', icon: '🫘' },
+  gluten: { en: 'Gluten', hi: 'ग्लूटेन', icon: '🌾' },
+  sesame: { en: 'Sesame', hi: 'तिल', icon: '🫘' },
+};
+
+// ─── App Config ────────────────────────────────────────────
+export const APP_CONFIG = {
+  name: 'ScanWise',
+  tagline: 'Know What You Eat',
+  taglineHi: 'जानिए आप क्या खा रहे हैं',
+  description: 'Scan any food barcode and get instant, trustworthy health insights',
+  version: '1.0.0',
+  supportedLocales: ['en', 'hi'] as const,
+  defaultLocale: 'en' as const,
+};
+
+// ─── Demo Products (for showcase) ──────────────────────────
+export const DEMO_PRODUCTS = [
+  {
+    barcode: '8901234567890',
+    name: 'Maggi 2-Minute Masala Noodles',
+    brand: 'Nestlé',
+    image_url: '/demo/maggi.png',
+    category: 'Instant Noodles',
+    nutri_score: 'D' as const,
+    nova_group: 4 as const,
+    eco_score: 'D' as const,
+    health_score: 25,
+    calories_per_100g: 405,
+    fat_per_100g: 16.8,
+    saturated_fat_per_100g: 7.6,
+    carbs_per_100g: 55.5,
+    sugar_per_100g: 2.4,
+    fiber_per_100g: 2.2,
+    protein_per_100g: 9.4,
+    salt_per_100g: 2.5,
+    sodium_per_100g: 990,
+    ingredients_text: 'Wheat flour, palm oil, salt, mineral mix, masala mix (red chilli, coriander, turmeric, ginger, garlic, cumin, aniseed, fenugreek, black pepper, clove, cardamom, nutmeg, caraway)',
+    allergens: ['wheat', 'gluten'],
+    additives: ['E627', 'E631', 'E551'],
+    processing_level: 'ultra_processed' as const,
+    ai_summary_en: 'Maggi noodles are ultra-processed with high sodium (2.5g per 100g) and saturated fat. While convenient, regular consumption is not recommended for heart health. Consider whole grain alternatives with lower sodium content.',
+    ai_summary_hi: 'मैगी नूडल्स अति-प्रसंस्कृत हैं जिनमें उच्च सोडियम (100 ग्राम में 2.5 ग्राम) और संतृप्त वसा है। सुविधाजनक होने के बावजूद, नियमित सेवन हृदय स्वास्थ्य के लिए अनुशंसित नहीं है। कम सोडियम वाले साबुत अनाज विकल्पों पर विचार करें।',
+  },
+  {
+    barcode: '8901234567891',
+    name: 'Amul Toned Milk',
+    brand: 'Amul',
+    image_url: '/demo/amul-milk.png',
+    category: 'Dairy',
+    nutri_score: 'A' as const,
+    nova_group: 1 as const,
+    eco_score: 'B' as const,
+    health_score: 88,
+    calories_per_100g: 58,
+    fat_per_100g: 3.0,
+    saturated_fat_per_100g: 1.9,
+    carbs_per_100g: 4.8,
+    sugar_per_100g: 4.8,
+    fiber_per_100g: 0,
+    protein_per_100g: 3.1,
+    salt_per_100g: 0.1,
+    sodium_per_100g: 44,
+    ingredients_text: 'Toned milk',
+    allergens: ['milk'],
+    additives: [],
+    processing_level: 'minimally_processed' as const,
+    ai_summary_en: 'Amul Toned Milk is a minimally processed dairy product with excellent nutritional value. Low in calories and fat, it provides quality protein and essential calcium. Great for daily consumption as part of a balanced diet.',
+    ai_summary_hi: 'अमूल टोंड मिल्क एक न्यूनतम प्रसंस्कृत डेयरी उत्पाद है जिसमें उत्कृष्ट पोषण मूल्य है। कम कैलोरी और वसा वाला, यह गुणवत्तापूर्ण प्रोटीन और आवश्यक कैल्शियम प्रदान करता है। संतुलित आहार के हिस्से के रूप में दैनिक सेवन के लिए बढ़िया।',
+  },
+  {
+    barcode: '8901234567892',
+    name: 'Lay\'s Classic Salted Chips',
+    brand: 'PepsiCo',
+    image_url: '/demo/lays.png',
+    category: 'Snacks',
+    nutri_score: 'E' as const,
+    nova_group: 4 as const,
+    eco_score: 'E' as const,
+    health_score: 12,
+    calories_per_100g: 536,
+    fat_per_100g: 35.0,
+    saturated_fat_per_100g: 3.2,
+    carbs_per_100g: 52.0,
+    sugar_per_100g: 0.5,
+    fiber_per_100g: 3.8,
+    protein_per_100g: 6.0,
+    salt_per_100g: 1.2,
+    sodium_per_100g: 480,
+    ingredients_text: 'Potatoes, vegetable oil (sunflower, palmolein), salt, spice mix',
+    allergens: [],
+    additives: ['E551', 'E627', 'E631'],
+    processing_level: 'ultra_processed' as const,
+    ai_summary_en: 'Lay\'s chips are ultra-processed with very high calories (536 per 100g) and fat content. The combination of refined carbs, unhealthy fats, and sodium makes this a food to limit. Choose baked alternatives or roasted snacks instead.',
+    ai_summary_hi: 'लेज़ चिप्स अति-प्रसंस्कृत हैं जिनमें बहुत अधिक कैलोरी (100 ग्राम में 536) और वसा है। रिफाइंड कार्ब्स, अस्वास्थ्यकर वसा और सोडियम का संयोजन इसे सीमित करने वाला भोजन बनाता है। बेक्ड विकल्प या भुने हुए स्नैक्स चुनें।',
+  },
+  {
+    barcode: '8901234567893',
+    name: 'Saffola Gold Edible Oil',
+    brand: 'Marico',
+    image_url: '/demo/saffola.png',
+    category: 'Cooking Oil',
+    nutri_score: 'B' as const,
+    nova_group: 2 as const,
+    eco_score: 'C' as const,
+    health_score: 68,
+    calories_per_100g: 900,
+    fat_per_100g: 100,
+    saturated_fat_per_100g: 12,
+    carbs_per_100g: 0,
+    sugar_per_100g: 0,
+    fiber_per_100g: 0,
+    protein_per_100g: 0,
+    salt_per_100g: 0,
+    sodium_per_100g: 0,
+    ingredients_text: 'Rice bran oil, safflower oil, sesame oil, antioxidant (E319)',
+    allergens: ['sesame'],
+    additives: ['E319'],
+    processing_level: 'processed' as const,
+    ai_summary_en: 'Saffola Gold is a blended heart-healthy cooking oil with a good balance of MUFA and PUFA. The oryzanol content from rice bran oil offers additional heart benefits. Use in moderation as part of a low-fat cooking approach.',
+    ai_summary_hi: 'सफोला गोल्ड एक मिश्रित हृदय-स्वस्थ खाना पकाने का तेल है जिसमें MUFA और PUFA का अच्छा संतुलन है। राइस ब्रान ऑयल से ओराइज़ेनॉल हृदय को अतिरिक्त लाभ प्रदान करता है। कम वसा वाले खाना पकाने के तरीके के हिस्से के रूप में संयम से उपयोग करें।',
+  },
+  {
+    barcode: '8901234567894',
+    name: 'Coca-Cola Original',
+    brand: 'Coca-Cola',
+    image_url: '/demo/coke.png',
+    category: 'Beverages',
+    nutri_score: 'E' as const,
+    nova_group: 4 as const,
+    eco_score: 'D' as const,
+    health_score: 8,
+    calories_per_100g: 42,
+    fat_per_100g: 0,
+    saturated_fat_per_100g: 0,
+    carbs_per_100g: 10.6,
+    sugar_per_100g: 10.6,
+    fiber_per_100g: 0,
+    protein_per_100g: 0,
+    salt_per_100g: 0,
+    sodium_per_100g: 4,
+    ingredients_text: 'Carbonated water, sugar, colour (E150d), phosphoric acid, natural flavourings, caffeine',
+    allergens: [],
+    additives: ['E150d', 'E338'],
+    processing_level: 'ultra_processed' as const,
+    ai_summary_en: 'Coca-Cola is an ultra-processed beverage extremely high in sugar (10.6g per 100ml). A single can contains about 35g of sugar — far exceeding WHO daily recommendations. Regular consumption increases risk of obesity, diabetes, and tooth decay. Choose water, unsweetened tea, or fruit-infused water instead.',
+    ai_summary_hi: 'कोका-कोला एक अति-प्रसंस्कृत पेय है जिसमें बहुत अधिक चीनी (100 मिली में 10.6 ग्राम) है। एक कैन में लगभग 35 ग्राम चीनी है — जो WHO की दैनिक सिफारिशों से कहीं अधिक है। नियमित सेवन से मोटापा, मधुमेह और दांतों की सड़ने का खतरा बढ़ता है। पानी, बिना मीठी चाय या फल-मिश्रित पानी चुनें।',
+  },
+  {
+    barcode: '8901234567895',
+    name: 'Yogabar Muesli',
+    brand: 'Yogabar',
+    image_url: '/demo/yogabar.png',
+    category: 'Snacks',
+    nutri_score: 'A' as const,
+    nova_group: 2 as const,
+    eco_score: 'B' as const,
+    health_score: 82,
+    calories_per_100g: 387,
+    fat_per_100g: 11.5,
+    saturated_fat_per_100g: 1.8,
+    carbs_per_100g: 57.0,
+    sugar_per_100g: 8.2,
+    fiber_per_100g: 9.5,
+    protein_per_100g: 14.8,
+    salt_per_100g: 0.15,
+    sodium_per_100g: 60,
+    ingredients_text: 'Rolled oats, almonds, raisins, honey, pumpkin seeds, sunflower seeds, dried cranberries, flax seeds, cinnamon',
+    allergens: ['tree_nuts'],
+    additives: [],
+    processing_level: 'minimally_processed' as const,
+    ai_summary_en: 'Yogabar Muesli is an excellent whole-grain breakfast option with high fiber (9.5g) and protein (14.8g) per 100g. Rich in nuts and seeds providing healthy fats, vitamins, and minerals. Low in saturated fat and salt. A smart choice for a nutritious start to the day.',
+    ai_summary_hi: 'योगाबार म्यूस्ली एक उत्कृष्ट साबुत अनाज नाश्ता विकल्प है जिसमें उच्च फाइबर (9.5 ग्राम) और प्रोटीन (14.8 ग्राम) प्रति 100 ग्राम है। नट्स और बीजों से भरपूर जो स्वस्थ वसा, विटामिन और खनिज प्रदान करते हैं। संतृप्त वसा और नमक में कम। दिन की शुरुआत के लिए एक समझदार विकल्प।',
+  },
+];
